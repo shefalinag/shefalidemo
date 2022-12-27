@@ -1,0 +1,9 @@
+{
+	"name": "lekishadf",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "3613137f-34a0-4e83-9302-64bb39ebe08e",
+		"tenantId": "82702743-6489-48d3-8d7b-6aac85efde58"
+	}
+}
