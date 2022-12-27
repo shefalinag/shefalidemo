@@ -1,0 +1,9 @@
+{
+	"name": "shefalidf",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "07a48395-3b2b-4ffd-93a2-2e745aaad5af",
+		"tenantId": "82702743-6489-48d3-8d7b-6aac85efde58"
+	}
+}

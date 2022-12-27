@@ -1,0 +1,58 @@
+{
+	"name": "StringifyTransformation",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ContactJson",
+						"type": "DatasetReference"
+					},
+					"name": "Contacts"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "personoutputds",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "stringify1"
+				},
+				{
+					"name": "derivedColumn1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          name as string,",
+				"          Skills as string[],",
+				"          contact as (mobile as string, landline as string)",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'documentPerLine') ~> Contacts",
+				"Contacts stringify(contactStringfy = contact ? string,",
+				"     format: 'json') ~> stringify1",
+				"stringify1 derive(contactStringfy = toString(contactStringfy)) ~> derivedColumn1",
+				"derivedColumn1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     partitionFileNames:['contact.csv'],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     mapColumn(",
+				"          name,",
+				"          contactStringfy",
+				"     ),",
+				"     partitionBy('hash', 1)) ~> sink1"
+			]
+		}
+	}
+}

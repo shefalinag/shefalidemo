@@ -1,0 +1,12 @@
+{
+	"name": "personls",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"connectionString": "DefaultEndpointsProtocol=https;AccountName=shefalistorage;EndpointSuffix=core.windows.net;",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDlBOUFBQkU3LUE0N0UtNEYwOC1BNEVBLUQzNURBQ0U1RTk5M19jNzA2YzIxYy1hMGI4LTQ2NzUtYTM5NS03OGMyZDA5NmI5MzYiDQp9"
+		}
+	}
+}
