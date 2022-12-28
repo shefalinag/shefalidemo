@@ -1,0 +1,25 @@
+{
+	"name": "parameterizels",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"parameters": {
+			"servername": {
+				"type": "string"
+			},
+			"databasename": {
+				"type": "string"
+			},
+			"username": {
+				"type": "string"
+			},
+			"password": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "Integrated Security=False;Data Source=@{linkedService().servername};Initial Catalog=@{linkedService().databasename};User ID=@{linkedService().username};Password=@{linkedService().password}"
+		}
+	}
+}
